@@ -30,10 +30,9 @@ NewCharWizardPage6::NewCharWizardPage6(DataAccessLayer *dal, QWidget *parent) :
     QWizardPage(parent),
     ui(new Ui::NewCharWizardPage6)
 {
-
-    this->setTitle(tr("Part 6: Ancestry and Family"));
     ui->setupUi(this);
     this->dal = dal;
+    this->setTitle(tr("Part 6: Ancestry and Family"));
     ui->nc6_HIDDEN_DoubleKoku->setVisible(false); //holds a skill string
     curAncestorBox = NULL;
 
@@ -64,13 +63,14 @@ NewCharWizardPage6::NewCharWizardPage6(DataAccessLayer *dal, QWidget *parent) :
     registerField("q17roninText",ui->nc6_q17r_lineEdit);
 
     //FoV
-    registerField("q18DoubleKoku*", ui->nc6_HIDDEN_DoubleKoku);
+    registerField("q18DoubleKoku", ui->nc6_HIDDEN_DoubleKoku);
 }
 
 NewCharWizardPage6::~NewCharWizardPage6()
 {
     delete ui;
 }
+
 
 void NewCharWizardPage6::initializePage()
 {
@@ -140,11 +140,8 @@ void NewCharWizardPage6::initializePage()
        ui->q17s_q18r_groupBox->setTitle("18. Who raised you?");
        ui->q18s_groupbox->setVisible(false);
    }
-
-
-
-
 }
+
 
 void NewCharWizardPage6::on_nc6_q18_ancestor1_rollButton_clicked()
 {
@@ -1084,4 +1081,5 @@ QMap<QString, int> NewCharWizardPage6::calcSkills(){
 
         return skillmap;
 }
+
 
